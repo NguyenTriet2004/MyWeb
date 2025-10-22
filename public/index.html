@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- THẺ META QUAN TRỌNG CHO SEO/HIỂN THỊ -->
+    <meta
+      name="description"
+      content="Sĩ Triết - Chuyên gia Lập trình Web, Thiết kế UI/UX và giải pháp SEO Tối ưu. Xây dựng website chuyên nghiệp cho doanh nghiệp và cá nhân."
+    />
+    <meta
+      name="keywords"
+      content="thiết kế web, lập trình web, seo, ui ux, website chuyên nghiệp, sĩ triết"
+    />
+    <meta name="author" content="Sĩ Triết" />
+
+    <title>Sĩ Triết | Lập Trình Web & Thiết Kế Chuẩn SEO Chuyên Nghiệp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Bổ sung Font Awesome (Icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- CSS TÙY CHỈNH CHO PHẦN THÔNG BÁO (TỐT NHẤT NÊN ĐẶT TRONG style.css) -->
+    <style>
+      :root {
+        /* Định nghĩa màu nền chính và màu nhấn (Nên đặt trong style.css) */
+        --color-primary-dark: #112240;
+        --color-secondary-accent: #64ffda;
+      }
+      .status-message {
+        margin-top: 30px;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.5s ease, background-color 0.3s;
+        color: var(--color-primary-dark);
+        font-family: "Montserrat", sans-serif;
+        font-size: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .status-message.success {
+        background-color: var(--color-secondary-accent);
+        opacity: 1;
+      }
+
+      .status-message.error {
+        background-color: #ff6464;
+        color: white;
+        opacity: 1;
+      }
+
+      .status-message.loading {
+        background-color: #ffd700;
+        color: var(--color-primary-dark);
+        opacity: 1;
+      }
+
+      .status-message.hidden {
+        display: none;
+      }
+
+      .contact-form-layout input,
+      .contact-form-layout textarea {
+        transition: border-color 0.3s ease;
+      }
+
+      .contact-form-layout input:focus,
+      .contact-form-layout textarea:focus {
+        border-color: var(--color-secondary-accent);
+        box-shadow: 0 0 0 1px var(--color-secondary-accent);
+      }
+
+      /* Cập nhật style cho icon trong Service Card */
+      .service-card .detail-icon {
+        font-size: 2.5rem; /* Kích thước lớn hơn */
+        color: var(--color-secondary-accent); /* Màu xanh neon */
+        margin-bottom: 15px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="navbar">
+      <div class="logo">SĨ TRIẾT</div>
+      <nav class="nav-links">
+        <a href="index.html" class="active-nav">Trang Chủ</a>
+        <a href="services.html" target="_blank">Dịch Vụ</a>
+        <a href="portfolio.html">Sản Phẩm</a>
+        <a href="about.html">Giới Thiệu</a>
+      </nav>
+      <a href="/admin/login" class="btn-secondary">Login</a>
+    </header>
+
+    <main>
+      <section id="hero" class="hero-section section-padding">
+        <div class="hero-content">
+          <p class="intro-line">// Chào mừng đến với Sĩ Triết Digital</p>
+          <h1>Chuyên gia Phát triển Web và Giải pháp SEO Tối ưu.</h1>
+          <p class="subtitle">
+            Thiết kế website **sang trọng**, **chuyên nghiệp** cho Doanh nghiệp
+            & Cá nhân. Đảm bảo tốc độ và chuẩn SEO.
+          </p>
+          <div class="hero-actions">
+            <a href="services.html" target="_blank" class="btn-primary"
+              >Xem Dịch Vụ Của Tôi</a
+            >
+            <a href="#contact-section" class="btn-outline">Liên Hệ Ngay</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="services-preview" class="section-padding">
+        <h2 class="section-title">Dịch Vụ Nổi Bật</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="detail-icon"><i class="fa-solid fa-code"></i></span>
+            <h3>Lập trình Web Đa Nền tảng</h3>
+            <img
+              src="assets/img/anh1.jpg"
+              alt="Lập trình Web Đa Nền tảng"
+              class="service-card-img"
+              onerror="this.onerror=null;this.src='https://placehold.co/400x200/112240/64FFDA?text=Web+Development'"
+            />
+            <p>
+              Xây dựng các ứng dụng web tùy chỉnh với công nghệ Frontend và
+              Backend hiện đại nhất (React, Node.js, Next.js).
+            </p>
+          </div>
+          <div class="service-card">
+            <span class="detail-icon"
+              ><i class="fa-solid fa-magnifying-glass-chart"></i
+            ></span>
+            <h3>Thiết kế Website Chuẩn SEO</h3>
+            <img
+              src="assets/img/anh2.jpg"
+              alt="Lập trình Web Đa Nền tảng"
+              class="service-card-img"
+              onerror="this.onerror=null;this.src='https://placehold.co/400x200/112240/64FFDA?text=SEO+Optimization'"
+            />
+            <p>
+              Tạo giao diện đẹp, tối ưu tốc độ, cấu trúc nội dung và kỹ thuật để
+              website đạt thứ hạng cao trên Google.
+            </p>
+          </div>
+          <div class="service-card">
+            <span class="detail-icon"><i class="fa-solid fa-palette"></i></span>
+            <h3>Thiết kế UI/UX Sang Trọng</h3>
+            <img
+              src="assets/img/anh3.jpg"
+              alt="Lập trình Web Đa Nền tảng"
+              class="service-card-img"
+              onerror="this.onerror=null;this.src='https://placehold.co/400x200/112240/64FFDA?text=UI+UX+Design'"
+            />
+            <p>
+              Tập trung vào trải nghiệm người dùng (UX) và giao diện trực quan
+              (UI) để tăng tỷ lệ chuyển đổi cho doanh nghiệp.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio-preview" class="section-padding dark-bg">
+        <h2 class="section-title">Các Dự Án Đã Thực Hiện</h2>
+        <p class="subtitle">Chất lượng được thể hiện qua sản phẩm thực tế.</p>
+        <div class="portfolio-grid">
+          <div class="project-item">
+            <div class="project-overlay">
+              <h4>[Trang Web Cho Giáo Viên Dạy Toán]</h4>
+              <p>Mẫu 1 | Phục vụ cho cá nhân</p>
+              <a
+                href="https://toanhocthaynguyen.wordpress.com/"
+                class="view-link"
+                target="_blank"
+                >Xem Chi Tiết &rarr;</a
+              >
+            </div>
+          </div>
+          <div
+            class="project-item"
+            style="
+              background-image: url('https://placehold.co/350x300/112240/ccd6f6?text=Coming+Soon');
+            "
+          >
+            <div class="project-overlay">
+              <h4>[Dự án 2: Thương mại điện tử]</h4>
+              <p>Sử dụng Next.js & Tailwind CSS</p>
+              <a href="#" class="view-link" style="opacity: 0.5"
+                >Đang Phát Triển &rarr;</a
+              >
+            </div>
+          </div>
+          <div
+            class="project-item"
+            style="
+              background-image: url('https://placehold.co/350x300/112240/ccd6f6?text=Coming+Soon');
+            "
+          >
+            <div class="project-overlay">
+              <h4>[Dự án 3: Landing Page Bất Động Sản]</h4>
+              <p>Mục tiêu chuyển đổi cao</p>
+              <a href="#" class="view-link" style="opacity: 0.5"
+                >Đang Phát Triển &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-section" class="section-padding">
+        <h2 class="section-title">Bạn Đã Sẵn Sàng Bắt Đầu?</h2>
+        <p class="subtitle">
+          Hãy mô tả yêu cầu của bạn, Sĩ Triết sẽ gửi báo giá chi tiết trong vòng
+          24 giờ.
+        </p>
+        <form
+          id="contact-form"
+          class="contact-form-layout"
+          method="POST"
+          action="#"
+        >
+          <input type="text" name="name" placeholder="Tên của bạn" required />
+          <!-- CẬP NHẬT: Thêm trường Số điện thoại -->
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Số điện thoại (Zalo/SĐT)"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email liên hệ (Không bắt buộc)"
+          />
+          <textarea
+            name="message"
+            placeholder="Mô tả chi tiết yêu cầu của bạn (dịch vụ, ngân sách, thời gian...)"
+            rows="5"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="btn-primary large-btn"
+            id="submit-button"
+          >
+            Gửi Yêu Cầu &rarr;
+          </button>
+        </form>
+
+        <!-- KHUNG THÔNG BÁO KẾT QUẢ -->
+        <div id="status-message" class="status-message hidden"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Sĩ Triết. All Rights Reserved. | Crafted with passion.</p>
+    </footer>
+
+    <!-- LIÊN KẾT ĐẾN SCRIPT XỬ LÝ TELEGRAM -->
+    <script src="assets/js/telegram.js"></script>
+  </body>
+</html>

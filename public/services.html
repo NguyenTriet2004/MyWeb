@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dịch Vụ | Lập Trình Web, SEO & Thiết Kế UI/UX Chuyên Nghiệp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tải CSS hiện tại -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Tải thư viện Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- HEADER ĐƯỢC GIỮ NGUYÊN TỪ INDEX.HTML -->
+    <header id="header" class="navbar">
+      <div class="logo">SĨ TRIẾT</div>
+      <nav class="nav-links">
+        <a href="index.html">Trang Chủ</a>
+        <a href="services.html" class="active-nav">Dịch Vụ</a>
+        <a href="portfolio.html">Sản Phẩm</a>
+        <a href="about.html">Giới Thiệu</a>
+      </nav>
+      <a href="/admin/login" class="btn-secondary">Login</a>
+    </header>
+
+    <main>
+      <!-- 1. HERO SECTION RIÊNG CHO TRANG DỊCH VỤ -->
+      <section
+        id="services-hero"
+        class="hero-section section-padding service-hero-modified"
+      >
+        <div class="hero-content">
+          <p class="intro-line">
+            // Giải pháp Toàn diện cho Thương hiệu của bạn
+          </p>
+          <h1>Cung cấp Dịch vụ Lập trình, SEO và Thiết kế Web Cao cấp.</h1>
+          <p class="subtitle" style="text-align: left">
+            Mỗi dịch vụ được thiết kế để mang lại hiệu suất tối ưu và trải
+            nghiệm người dùng vượt trội, giúp doanh nghiệp đạt được mục tiêu số
+            hóa và tăng trưởng.
+          </p>
+          <div class="hero-actions">
+            <a href="#service-details" class="btn-primary"
+              >Xem Chi Tiết Từng Dịch Vụ</a
+            >
+            <a href="#contact-section" class="btn-outline">Yêu Cầu Báo Giá</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PHẦN CHI TIẾT DỊCH VỤ -->
+      <section id="service-details" class="section-padding dark-bg">
+        <h2 class="section-title">Các Gói Dịch Vụ Chuyên sâu</h2>
+
+        <!-- DỊCH VỤ 1: Lập trình Web Đa Nền tảng -->
+        <div class="service-detail-item">
+          <div class="detail-content">
+            <span class="detail-icon"><i class="fa-solid fa-code"></i></span>
+            <h3>Lập trình Web Tùy chỉnh (Full-Stack Development)</h3>
+            <p>
+              Tập trung vào việc xây dựng các ứng dụng web phức tạp, độc đáo, từ
+              các trang web doanh nghiệp lớn đến các ứng dụng SaaS (Software as
+              a Service) chuyên biệt. Chúng tôi sử dụng các công nghệ mới nhất
+              như **React, Next.js, Node.js và TypeScript** để đảm bảo hiệu
+              suất, bảo mật và khả năng mở rộng tối đa.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fa-solid fa-check"></i> Phát triển giao diện người
+                dùng (Frontend) hiện đại, tương thích mọi thiết bị.
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i> Xây dựng API và hệ thống
+                Backend mạnh mẽ, an toàn.
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i> Tối ưu hóa hiệu suất
+                (Lighthouse Score A) và Tốc độ tải trang (Page Speed).
+              </li>
+            </ul>
+            <a href="#contact-section" class="btn-outline"
+              >Báo Giá Gói Lập Trình Web</a
+            >
+          </div>
+          <div class="detail-image-placeholder">
+            <!-- Image of Lập trình web đa nền tảng -->
+            <img
+              src="https://placehold.co/600x400/112240/64FFDA?text=Web+Development+Custom"
+              alt="Hình ảnh minh họa Lập trình Web"
+              class="detail-img"
+            />
+          </div>
+        </div>
+
+        <!-- DỊCH VỤ 2: Thiết kế Website Chuẩn SEO -->
+        <div class="service-detail-item reverse-layout">
+          <div class="detail-image-placeholder">
+            <!-- Image of Thiết kế website chuẩn SEO -->
+            <img
+              src="https://placehold.co/600x400/112240/64FFDA?text=SEO+Optimization+Design"
+              alt="Hình ảnh minh họa Thiết kế SEO"
+              class="detail-img"
+            />
+          </div>
+          <div class="detail-content">
+            <span class="detail-icon"
+              ><i class="fa-solid fa-magnifying-glass-chart"></i
+            ></span>
+            <h3>Thiết Kế Website Tối ưu hóa Công cụ Tìm kiếm (SEO)</h3>
+            <p>
+              Một website đẹp không đủ. Chúng tôi thiết kế website với nền tảng
+              kỹ thuật vững chắc, tuân thủ các tiêu chuẩn SEO mới nhất của
+              Google. Từ cấu trúc URL, Schema Markup, đến tối ưu hóa tốc độ cốt
+              lõi (Core Web Vitals), mọi yếu tố đều được chăm chút để đưa
+              website của bạn lên top đầu tìm kiếm.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fa-solid fa-check"></i> Cấu trúc dữ liệu có tổ chức
+                (Structured Data/Schema Markup).
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i> Tối ưu hóa On-page và
+                Technical SEO toàn diện.
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i> Website tự động tương thích và
+                thân thiện với di động.
+              </li>
+            </ul>
+            <a href="#contact-section" class="btn-outline"
+              >Báo Giá Gói Thiết Kế SEO</a
+            >
+          </div>
+        </div>
+
+        <!-- DỊCH VỤ 3: Thiết kế UI/UX Sang Trọng -->
+        <div class="service-detail-item">
+          <div class="detail-content">
+            <span class="detail-icon"><i class="fa-solid fa-palette"></i></span>
+            <h3>Thiết kế UI/UX Tinh tế, Nâng cao Tỷ lệ Chuyển đổi</h3>
+            <p>
+              Chúng tôi không chỉ làm cho website đẹp mà còn dễ sử dụng (UX) và
+              thu hút (UI). Quá trình thiết kế bắt đầu bằng nghiên cứu người
+              dùng, xây dựng Wireframe và Prototype chi tiết, đảm bảo mỗi cú
+              nhấp chuột đều hướng người dùng đến hành động mong muốn (mua hàng,
+              đăng ký, liên hệ).
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fa-solid fa-check"></i> Phân tích hành vi người dùng
+                và lập bản đồ trải nghiệm (User Journey Map).
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i> Thiết kế giao diện trực quan,
+                sang trọng, phù hợp với nhận diện thương hiệu.
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i> Thiết kế tối ưu cho A/B
+                testing và chuyển đổi khách hàng.
+              </li>
+            </ul>
+            <a href="#contact-section" class="btn-outline"
+              >Báo Giá Gói Thiết Kế UI/UX</a
+            >
+          </div>
+          <div class="detail-image-placeholder">
+            <!-- Image of Thiết kế UI/UX tối ưu chuyển đổi -->
+            <img
+              src="https://placehold.co/600x400/112240/64FFDA?text=UI+UX+Conversion+Focused"
+              alt="Hình ảnh minh họa Thiết kế UI/UX"
+              class="detail-img"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. GỌI HÀNH ĐỘNG (CONTACT FORM) -->
+      <section
+        id="contact-section"
+        class="section-padding dark-bg"
+        style="border-top: 1px solid rgba(136, 146, 176, 0.1)"
+      >
+        <h2 class="section-title" style="color: var(--color-secondary-accent)">
+          Sẵn Sàng Nâng Tầm Dự Án Của Bạn?
+        </h2>
+        <p class="subtitle" style="margin-bottom: 20px">
+          Hãy để lại thông tin và mô tả chi tiết yêu cầu của bạn. Sĩ Triết sẽ
+          phân tích và phản hồi kèm báo giá chi tiết trong vòng 24 giờ làm việc.
+        </p>
+        <form id="contact-form" class="contact-form-layout">
+          <input type="text" name="name" placeholder="Tên của bạn" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email liên hệ"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Mô tả chi tiết yêu cầu của bạn (dịch vụ, ngân sách, thời gian...)"
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit" class="btn-primary large-btn">
+            Gửi Yêu Cầu &rarr;
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Sĩ Triết. All Rights Reserved. | Crafted with passion.</p>
+    </footer>
+
+    <script src="assets/js/telegram.js"></script>
+  </body>
+</html>
