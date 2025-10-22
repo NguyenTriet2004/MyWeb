@@ -360,6 +360,7 @@ body {
 }
 
 .contact-form-layout input[type="text"],
+.contact-form-layout input[type="tel"],
 .contact-form-layout input[type="email"],
 .contact-form-layout textarea {
   padding: 15px;
