@@ -1,4 +1,8 @@
-/* Thiết lập Font chữ, Màu sắc cơ bản */
+/* ============================================================
+   🌌 STYLE MAIN FILE — MyWeb + Slider 3D Rồng
+   ============================================================ */
+
+/* ==== Thiết lập Font chữ, Màu sắc cơ bản ==== */
 :root {
   --color-primary-dark: #0a192f; /* Nền chính: Xanh Navy/Đen */
   --color-secondary-accent: #64ffda; /* Điểm nhấn: Xanh Cyan */
@@ -30,7 +34,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 80px;
-  /* Màu xanh navy đậm cho Navbar để đồng nhất với theme */
   background-color: rgba(10, 25, 47, 0.98);
   position: fixed;
   width: 100%;
@@ -55,8 +58,66 @@ body {
 
 .nav-links a:hover,
 .nav-links a.active-nav {
-  /* Thêm class active-nav cho trang hiện tại */
   color: var(--color-secondary-accent);
+}
+.user-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.user-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  color: #64ffda;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.user-name:hover {
+  background: rgba(100, 255, 218, 0.2);
+}
+
+/* Dropdown container */
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #0a192f;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.15);
+  min-width: 140px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+/* Khi hover vào .user-menu hoặc chính dropdown */
+.user-menu:hover .user-dropdown,
+.user-dropdown:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Link trong dropdown */
+.user-dropdown a {
+  display: block;
+  padding: 10px 15px;
+  color: #64ffda;
+  text-decoration: none;
+  transition: background 0.3s;
+  border-radius: 8px;
+}
+
+.user-dropdown a:hover {
+  background: rgba(100, 255, 218, 0.1);
 }
 
 /* -------------------- Buttons -------------------- */
@@ -123,30 +184,135 @@ body {
   text-align: center;
 }
 
-/* -------------------- Hero Section -------------------- */
+/* ============================================================
+   🐉 HERO SECTION + SLIDER 3D RỒNG
+   ============================================================ */
 .hero-section {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 100px;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f5f7fa
+  ); /* nền trắng sáng hơn */
+  overflow: hidden;
+  text-align: center;
 }
 
-/* Điều chỉnh padding-top cho hero section của trang service để tránh bị navbar che */
-.service-hero-modified {
-  padding-top: 150px; /* Tăng padding để tạo khoảng cách lớn hơn */
-  min-height: 70vh; /* Giảm chiều cao tối thiểu cho trang phụ */
-  align-items: flex-start;
+/* Hiệu ứng sáng phủ nhẹ để nổi chữ */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(240, 240, 240, 0.7) 50%,
+    rgba(230, 230, 230, 1) 100%
+  );
+  z-index: 1;
 }
 
+/* Container 3D */
+.slider3d-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Slider các ảnh rồng */
+.slider3d {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  animation: rotateSlider 25s linear infinite;
+}
+
+.slider3d span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 320px;
+  transform-origin: center;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(650px);
+}
+
+.slider3d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease, box-shadow 0.3s;
+}
+
+.slider3d img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+Robot giữa to và nổi bật hơn .center-robot {
+  position: absolute;
+  width: 500px; /* to hơn */
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+  filter: brightness(1.2) drop-shadow(0 10px 40px rgba(0, 0, 0, 0.4));
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Robot bay nhẹ lên xuống */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Animation xoay */
+@keyframes rotateSlider {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Overlay mờ tối giúp chữ nổi bật */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 47, 0.7);
+  z-index: 1;
+}
+
+/* Text hero */
 .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
   max-width: 800px;
-}
-
-.intro-line {
-  color: var(--color-secondary-accent);
-  font-family: var(--font-body);
-  margin-bottom: 20px;
-  font-size: 16px;
+  text-align: center;
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
 }
 
 .hero-content h1 {
@@ -154,10 +320,16 @@ body {
   font-size: 64px;
   line-height: 1.1;
   margin-bottom: 25px;
+  color: var(--color-text-light);
+}
+
+.intro-line {
+  color: var(--color-secondary-accent);
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
 .hero-content .subtitle {
-  text-align: left;
   margin-bottom: 40px;
   font-size: 18px;
   color: var(--color-text-dark);
@@ -165,9 +337,25 @@ body {
 
 .hero-actions {
   display: flex;
+  justify-content: center;
 }
 
-/* -------------------- Services Section (Preview/index.html) -------------------- */
+@keyframes fadeInUp {
+  0% {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   🧩 PHẦN KHÁC (Services, Portfolio, Contact, Footer)
+   ============================================================ */
+
+/* -------------------- Services Section -------------------- */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -181,8 +369,6 @@ body {
   border-radius: 6px;
   transition: transform 0.3s, box-shadow 0.3s;
   border-top: 3px solid var(--color-card-bg);
-
-  /* Đảm bảo 3 thẻ CÂN BẰNG nhau */
   min-height: 350px;
   display: flex;
   flex-direction: column;
@@ -206,98 +392,17 @@ body {
   font-size: 15px;
 }
 
-/* SỬA LỖI TRÀN ẢNH: Đặt CSS Ảnh ở đây (Áp dụng cho mọi kích thước) */
+/* Ảnh dịch vụ */
 .service-card .service-card-img {
   width: 100%;
   max-height: 200px;
   object-fit: cover;
   border-radius: 4px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 15px 0;
   display: block;
 }
 
-.service-card h3 {
-  margin-top: 0;
-}
-/* -------------------- KẾT THÚC SỬA LỖI TRÀN ẢNH -------------------- */
-
-/* -------------------- Service Detail Section (services.html) -------------------- */
-.service-detail-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 80px;
-  margin-bottom: 100px;
-  padding: 40px 0;
-}
-
-.service-detail-item:last-child {
-  margin-bottom: 0;
-}
-
-.service-detail-item.reverse-layout {
-  flex-direction: row-reverse; /* Đổi vị trí ảnh và nội dung */
-}
-
-.detail-content {
-  flex: 1;
-  max-width: 600px;
-}
-
-.detail-image-placeholder {
-  flex: 1;
-  min-width: 400px;
-  background-color: var(--color-card-bg);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
-}
-
-.detail-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.detail-icon {
-  font-size: 36px;
-  color: var(--color-secondary-accent);
-  margin-bottom: 20px;
-  display: block;
-}
-
-.detail-content h3 {
-  font-family: var(--font-heading);
-  font-size: 32px;
-  color: var(--color-text-light);
-  margin-bottom: 20px;
-}
-
-.detail-content p {
-  color: var(--color-text-dark);
-  line-height: 1.7;
-  margin-bottom: 25px;
-}
-
-.feature-list {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 40px;
-}
-
-.feature-list li {
-  color: var(--color-text-dark);
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-.feature-list li i {
-  color: var(--color-secondary-accent);
-  margin-right: 10px;
-}
-
-/* -------------------- Portfolio Section -------------------- */
+/* -------------------- Portfolio -------------------- */
 .dark-bg {
   background-color: #040c1a;
 }
@@ -314,7 +419,6 @@ body {
   border-radius: 6px;
   position: relative;
   overflow: hidden;
-  /* Tạm thời thêm background để thấy rõ */
   background-image: url("assets/img/project-placeholder.jpg");
   background-size: cover;
 }
@@ -359,9 +463,7 @@ body {
   gap: 20px;
 }
 
-.contact-form-layout input[type="text"],
-.contact-form-layout input[type="tel"],
-.contact-form-layout input[type="email"],
+.contact-form-layout input,
 .contact-form-layout textarea {
   padding: 15px;
   border: 1px solid var(--color-text-dark);
@@ -391,14 +493,7 @@ footer {
   color: var(--color-text-dark);
 }
 
-/* -------------------- Responsive Design (Tối ưu hóa cho di động) -------------------- */
-@media (max-width: 1200px) {
-  /* Điều chỉnh gap cho màn hình lớn hơn di động nhưng nhỏ hơn desktop */
-  .service-detail-item {
-    gap: 50px;
-  }
-}
-
+/* -------------------- Responsive -------------------- */
 @media (max-width: 900px) {
   .navbar {
     padding: 15px 25px;
@@ -420,22 +515,67 @@ footer {
     margin-top: 10px;
   }
 
-  /* Responsive cho Service Detail */
-  .service-detail-item,
-  .service-detail-item.reverse-layout {
-    flex-direction: column; /* Xếp dọc trên di động */
-    gap: 30px;
-    margin-bottom: 60px;
+  .slider3d {
+    width: 180px;
+    height: 180px;
   }
+}
+/* =========================================================
+   🌈 PHẦN BỔ SUNG: STATUS MESSAGE, FORM HIỆU ỨNG, ICON DỊCH VỤ
+   ========================================================= */
 
-  .detail-image-placeholder,
-  .detail-content {
-    min-width: 100%;
-    width: 100%;
-    max-width: 100%;
-  }
+/* === STATUS MESSAGE === */
+.status-message {
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.5s ease, background-color 0.3s;
+  color: var(--color-primary-dark);
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-  .detail-content h3 {
-    font-size: 28px;
-  }
+.status-message.success {
+  background-color: var(--color-secondary-accent);
+  opacity: 1;
+}
+
+.status-message.error {
+  background-color: #ff6464;
+  color: white;
+  opacity: 1;
+}
+
+.status-message.loading {
+  background-color: #ffd700;
+  color: var(--color-primary-dark);
+  opacity: 1;
+}
+
+.status-message.hidden {
+  display: none;
+}
+
+/* === FORM INPUT HIỆU ỨNG === */
+.contact-form-layout input,
+.contact-form-layout textarea {
+  transition: border-color 0.3s ease;
+}
+
+.contact-form-layout input:focus,
+.contact-form-layout textarea:focus {
+  border-color: var(--color-secondary-accent);
+  box-shadow: 0 0 0 1px var(--color-secondary-accent);
+}
+
+/* === ICON DỊCH VỤ === */
+.service-card .detail-icon {
+  font-size: 2.5rem; /* Kích thước lớn hơn */
+  color: var(--color-secondary-accent); /* Màu xanh neon */
+  margin-bottom: 15px;
+  display: block;
 }

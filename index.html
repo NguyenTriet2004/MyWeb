@@ -25,68 +25,34 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <!-- CSS TÙY CHỈNH CHO PHẦN THÔNG BÁO (TỐT NHẤT NÊN ĐẶT TRONG style.css) -->
-    <style>
-      :root {
-        /* Định nghĩa màu nền chính và màu nhấn (Nên đặt trong style.css) */
-        --color-primary-dark: #112240;
-        --color-secondary-accent: #64ffda;
-      }
-      .status-message {
-        margin-top: 30px;
-        padding: 15px;
-        border-radius: 8px;
-        text-align: center;
-        font-weight: 600;
-        opacity: 0;
-        transition: opacity 0.5s ease, background-color 0.3s;
-        color: var(--color-primary-dark);
-        font-family: "Montserrat", sans-serif;
-        font-size: 16px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      .status-message.success {
-        background-color: var(--color-secondary-accent);
-        opacity: 1;
-      }
-
-      .status-message.error {
-        background-color: #ff6464;
-        color: white;
-        opacity: 1;
-      }
-
-      .status-message.loading {
-        background-color: #ffd700;
-        color: var(--color-primary-dark);
-        opacity: 1;
-      }
-
-      .status-message.hidden {
-        display: none;
-      }
-
-      .contact-form-layout input,
-      .contact-form-layout textarea {
-        transition: border-color 0.3s ease;
-      }
-
-      .contact-form-layout input:focus,
-      .contact-form-layout textarea:focus {
-        border-color: var(--color-secondary-accent);
-        box-shadow: 0 0 0 1px var(--color-secondary-accent);
-      }
-
-      /* Cập nhật style cho icon trong Service Card */
-      .service-card .detail-icon {
-        font-size: 2.5rem; /* Kích thước lớn hơn */
-        color: var(--color-secondary-accent); /* Màu xanh neon */
-        margin-bottom: 15px;
-        display: block;
-      }
-    </style>
   </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginButton = document.getElementById("loginButton");
+      const loggedInUser = localStorage.getItem("loggedInUser");
+
+      if (loggedInUser) {
+        // Nếu đã đăng nhập, đổi nút LOGIN thành menu tài khoản
+        loginButton.outerHTML = `
+        <div class="user-menu">
+          <span class="user-name">Chào,${loggedInUser}</span>
+          <div class="user-dropdown">
+            <a href="#" id="logoutBtn">Đăng xuất</a>
+          </div>
+        </div>
+      `;
+
+        // Xử lý sự kiện đăng xuất
+        document.getElementById("logoutBtn").addEventListener("click", (e) => {
+          e.preventDefault();
+          localStorage.removeItem("loggedInUser");
+          alert("Bạn đã đăng xuất!");
+          location.reload(); // Tải lại trang để hiện lại nút LOGIN
+        });
+      }
+    });
+  </script>
+
   <body>
     <header id="header" class="navbar">
       <div class="logo">SĨ TRIẾT</div>
@@ -96,17 +62,60 @@
         <a href="portfolio.html">Sản Phẩm</a>
         <a href="about.html">Giới Thiệu</a>
       </nav>
-      <a href="/admin/login" class="btn-secondary">Login</a>
+      <a href="login.html" id="loginButton" class="btn-secondary">Login</a>
     </header>
 
     <main>
-      <section id="hero" class="hero-section section-padding">
+      <!-- Banner 3D Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="slider3d-container">
+          <div class="slider3d">
+            <span style="--i: 0"
+              ><img src="/public/assets/img/dragon_1.jpg" alt="Dragon 1"
+            /></span>
+            <span style="--i: 1"
+              ><img src="/public/assets/img/dragon_2.jpg" alt="Dragon 2"
+            /></span>
+            <span style="--i: 2"
+              ><img src="/public/assets/img/dragon_3.jpg" alt="Dragon 3"
+            /></span>
+            <span style="--i: 3"
+              ><img src="/public/assets/img/dragon_4.jpg" alt="Dragon 4"
+            /></span>
+            <span style="--i: 4"
+              ><img src="/public/assets/img/dragon_5.jpg" alt="Dragon 5"
+            /></span>
+            <span style="--i: 5"
+              ><img src="/public/assets/img/dragon_6.jpg" alt="Dragon 6"
+            /></span>
+            <span style="--i: 6"
+              ><img src="/public/assets/img/dragon_7.jpg" alt="Dragon 7"
+            /></span>
+            <span style="--i: 7"
+              ><img src="/public/assets/img/dragon_8.jpg" alt="Dragon 8"
+            /></span>
+            <span style="--i: 7"
+              ><img src="/public/assets/img/dragon_9.jpg" alt="Dragon 8"
+            /></span>
+            <span style="--i: 7"
+              ><img src="/public/assets/img/dragon_10.jpg" alt="Dragon 8"
+            /></span>
+          </div>
+
+          <!-- <img
+            src="/public/assets/img/model.png"
+            alt="Robot"
+            class="center-robot"
+          /> -->
+        </div>
+
         <div class="hero-content">
           <p class="intro-line">// Chào mừng đến với Sĩ Triết Digital</p>
           <h1>Chuyên gia Phát triển Web và Giải pháp SEO Tối ưu.</h1>
           <p class="subtitle">
-            Thiết kế website **sang trọng**, **chuyên nghiệp** cho Doanh nghiệp
-            & Cá nhân. Đảm bảo tốc độ và chuẩn SEO.
+            Thiết kế website <strong>sang trọng</strong>,
+            <strong>chuyên nghiệp</strong>
+            cho Doanh nghiệp & Cá nhân. Đảm bảo tốc độ và chuẩn SEO.
           </p>
           <div class="hero-actions">
             <a href="services.html" target="_blank" class="btn-primary"

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập | Sĩ Triết Digital</title>
+    <link rel="stylesheet" href="login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Montserrat:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box fade-in">
+        <h1 class="login-title" id="form-title">Đăng Nhập</h1>
+
+        <form id="loginForm" class="login-form">
+          <div class="input-group">
+            <label for="username">Tên đăng nhập</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Nhập tên đăng nhập"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Mật khẩu</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Nhập mật khẩu"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-login">Đăng Nhập</button>
+
+          <p class="switch-form">
+            Chưa có tài khoản?
+            <a href="#" id="showRegister">Đăng ký ngay</a>
+          </p>
+
+          <div class="extra-links">
+            <a href="index.html">← Quay lại Trang chủ</a>
+          </div>
+        </form>
+
+        <!-- Form Đăng ký -->
+        <form id="registerForm" class="login-form hidden">
+          <div class="input-group">
+            <label for="regUsername">Tên đăng nhập</label>
+            <input
+              type="text"
+              id="regUsername"
+              placeholder="Tạo tên đăng nhập"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="regPassword">Mật khẩu</label>
+            <input
+              type="password"
+              id="regPassword"
+              placeholder="Tạo mật khẩu"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-login">Đăng Ký</button>
+
+          <p class="switch-form">
+            Đã có tài khoản?
+            <a href="#" id="showLogin">Đăng nhập</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // === Xử lý chuyển đổi Login / Register ===
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const formTitle = document.getElementById("form-title");
+      const showRegister = document.getElementById("showRegister");
+      const showLogin = document.getElementById("showLogin");
+
+      showRegister.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginForm.classList.add("hidden");
+        registerForm.classList.remove("hidden");
+        formTitle.textContent = "Đăng Ký";
+      });
+
+      showLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        registerForm.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        formTitle.textContent = "Đăng Nhập";
+      });
+
+      // === Xử lý Đăng ký ===
+      registerForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.getElementById("regUsername").value.trim();
+        const password = document.getElementById("regPassword").value.trim();
+
+        if (localStorage.getItem(username)) {
+          alert("❌ Tên đăng nhập đã tồn tại!");
+          return;
+        }
+
+        localStorage.setItem(username, password);
+        alert("✅ Đăng ký thành công! Vui lòng đăng nhập lại.");
+        registerForm.reset();
+        showLogin.click(); // Chuyển sang form đăng nhập
+      });
+
+      // === Xử lý Đăng nhập ===
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const storedPassword = localStorage.getItem(username);
+
+        if (storedPassword && storedPassword === password) {
+          alert("🎉 Đăng nhập thành công!");
+          localStorage.setItem("loggedInUser", username);
+          window.location.href = "index.html"; // Trở về trang chủ
+        } else {
+          alert("❌ Sai tài khoản hoặc mật khẩu!");
+        }
+      });
+    </script>
+  </body>
+</html>
