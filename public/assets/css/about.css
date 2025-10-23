@@ -1,0 +1,226 @@
+/* ===============================
+   🌌 FILE: about.css
+   Dành riêng cho trang Giới thiệu (gioithieu.html)
+   =============================== */
+
+:root {
+  --primary-bg: #0a192f;
+  --accent-color: #64ffda;
+  --text-color: #d1d5db;
+  --white: #ffffff;
+}
+
+/* ==== RESET CƠ BẢN ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--primary-bg);
+  color: var(--text-color);
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   ✨ HEADER / NAVBAR
+   =============================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px; /* Giảm khoảng cách 2 bên */
+  background-color: rgba(10, 25, 47, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+}
+
+/* Logo */
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, color 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  color: var(--white);
+}
+
+/* Menu liên kết */
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active-nav {
+  color: var(--accent-color);
+}
+
+/* Khi cuộn xuống, header nhỏ lại và tối hơn */
+.navbar.scrolled {
+  background-color: rgba(10, 25, 47, 0.98);
+  padding: 10px 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ===============================
+   🧩 ABOUT SECTION
+   =============================== */
+.about-section {
+  padding: 120px 20px 100px;
+  text-align: center;
+  background: var(--primary-bg);
+  color: var(--text-color);
+}
+
+/* Container nội dung chính */
+.about-container {
+  max-width: 950px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Tiêu đề chính */
+.about-container h1 {
+  font-size: 2.6rem;
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Tiêu đề phụ */
+.about-container h2 {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Đoạn văn */
+.about-container p {
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  text-align: justify;
+  margin-bottom: 12px;
+}
+
+/* Danh sách */
+.about-container ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.about-container li {
+  color: var(--text-color);
+  margin: 8px 0;
+  position: relative;
+  padding-left: 25px;
+  transition: transform 0.3s ease;
+}
+
+.about-container li::before {
+  content: "▹";
+  color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.about-container li:hover {
+  transform: translateX(5px);
+}
+
+/* Khung thông tin liên hệ */
+.contact-info {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-info a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--white);
+}
+
+/* ===============================
+   🎞️ HIỆU ỨNG XUẤT HIỆN
+   =============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hiệu ứng scroll */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   📱 RESPONSIVE
+   =============================== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .about-container {
+    padding: 30px;
+  }
+
+  .about-container h1 {
+    font-size: 2rem;
+  }
+
+  .about-container h2 {
+    font-size: 1.4rem;
+  }
+}

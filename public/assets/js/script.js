@@ -4,7 +4,34 @@
  * Do không có server backend, chức năng này sẽ mô phỏng việc gửi thành công
  * bằng cách hiển thị một thông báo trên giao diện người dùng (UI).
  */
+// ==================== LOGIN CHECK & LOGOUT HANDLER ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const loginButton = document.getElementById("loginButton");
+  const loggedInUser = localStorage.getItem("loggedInUser");
 
+  if (loginButton && loggedInUser) {
+    // Nếu đã đăng nhập, đổi nút LOGIN thành menu tài khoản
+    loginButton.outerHTML = `
+      <div class="user-menu">
+        <span class="user-name">Chào, ${loggedInUser}</span>
+        <div class="user-dropdown">
+          <a href="#" id="logoutBtn">Đăng xuất</a>
+        </div>
+      </div>
+    `;
+
+    // Sự kiện đăng xuất
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("loggedInUser");
+        alert("Bạn đã đăng xuất!");
+        location.reload();
+      });
+    }
+  }
+});
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contact-form");
   const statusMessage = document.getElementById("status-message");
@@ -77,4 +104,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     `;
   document.head.appendChild(style);
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    question.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+});
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
 });

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu | Nguyễn Sĩ Triết - Lập Trình Web</title>
+    <link rel="stylesheet" href="./public/assets/css/about.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- ==============================
+         🧭 THANH ĐIỀU HƯỚNG (HEADER)
+         ============================== -->
+    <header class="navbar" id="navbar">
+      <div class="logo">NST WebDev</div>
+      <nav class="nav-links">
+        <a href="index.html">Trang chủ</a>
+        <a href="services.html">Dịch vụ</a>
+        <a href="gioithieu.html" class="active-nav">Giới thiệu</a>
+        <a href="lienhe.html">Liên hệ</a>
+      </nav>
+    </header>
+
+    <!-- ==============================
+         👨‍💻 PHẦN GIỚI THIỆU
+         ============================== -->
+    <section class="about-section">
+      <div class="about-container fade-up">
+        <h1>Giới thiệu về Nguyễn Sĩ Triết</h1>
+        <p>
+          Xin chào! Tôi là <strong>Nguyễn Sĩ Triết</strong> – một lập trình viên
+          đam mê trong lĩnh vực <strong>phát triển web hiện đại</strong>. Với
+          tinh thần học hỏi và không ngừng sáng tạo, tôi luôn mong muốn mang lại
+          những sản phẩm website có <em>thiết kế đẹp mắt, tốc độ tối ưu</em> và
+          trải nghiệm người dùng tuyệt vời nhất.
+        </p>
+
+        <h2>Tầm nhìn & Sứ mệnh</h2>
+        <p>
+          Tôi tin rằng mỗi website không chỉ là công cụ hiển thị thông tin, mà
+          còn là một “bộ mặt” giúp doanh nghiệp hoặc cá nhân thể hiện bản sắc
+          riêng. Vì vậy, mục tiêu của tôi là đồng hành cùng khách hàng trong
+          việc xây dựng những trang web:
+        </p>
+
+        <ul>
+          <li>Thân thiện, hiện đại và dễ sử dụng</li>
+          <li>Tối ưu tốc độ, chuẩn SEO và tương thích mọi thiết bị</li>
+          <li>Giao diện tinh tế, dễ dàng mở rộng trong tương lai</li>
+        </ul>
+
+        <h2>Lĩnh vực hoạt động</h2>
+        <p>
+          Tôi chuyên thiết kế và lập trình các website thuộc nhiều lĩnh vực:
+        </p>
+        <ul>
+          <li>Website doanh nghiệp, giới thiệu sản phẩm</li>
+          <li>Website bán hàng, thương mại điện tử</li>
+          <li>Website cá nhân, portfolio và blog</li>
+          <li>Hệ thống quản lý dữ liệu, ứng dụng web nội bộ</li>
+        </ul>
+
+        <h2>Phong cách làm việc</h2>
+        <p>
+          Tôi luôn đề cao sự <strong>chuyên nghiệp</strong>,
+          <strong>chính xác</strong> và <strong>minh bạch</strong> trong mọi
+          khâu thực hiện. Với phong cách làm việc
+          <em>linh hoạt và thân thiện</em>, tôi cam kết mang lại sự hài lòng cao
+          nhất cho từng khách hàng.
+        </p>
+
+        <h2>Thông tin liên hệ</h2>
+        <div class="contact-info">
+          <p>
+            📧 Email:
+            <a href="mailto:nguyensitriet.dev@gmail.com"
+              >nguyensitriet.dev@gmail.com</a
+            >
+          </p>
+          <p>📞 Số điện thoại: <a href="tel:+84901234567">0901 234 567</a></p>
+          <p>
+            🌐 Website:
+            <a href="index.html">www.nguyensitrietweb.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         ⚙️ SCRIPT HIỆU ỨNG
+         ============================== -->
+    <script>
+      // Hiệu ứng header khi cuộn
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Hiệu ứng xuất hiện dần khi cuộn
+      const fadeElements = document.querySelectorAll(".fade-up");
+      const onScrollFade = () => {
+        fadeElements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            el.classList.add("visible");
+          }
+        });
+      };
+      window.addEventListener("scroll", onScrollFade);
+      onScrollFade();
+    </script>
+  </body>
+</html>

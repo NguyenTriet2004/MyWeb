@@ -26,40 +26,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const loginButton = document.getElementById("loginButton");
-      const loggedInUser = localStorage.getItem("loggedInUser");
-
-      if (loggedInUser) {
-        // Nếu đã đăng nhập, đổi nút LOGIN thành menu tài khoản
-        loginButton.outerHTML = `
-        <div class="user-menu">
-          <span class="user-name">Chào,${loggedInUser}</span>
-          <div class="user-dropdown">
-            <a href="#" id="logoutBtn">Đăng xuất</a>
-          </div>
-        </div>
-      `;
-
-        // Xử lý sự kiện đăng xuất
-        document.getElementById("logoutBtn").addEventListener("click", (e) => {
-          e.preventDefault();
-          localStorage.removeItem("loggedInUser");
-          alert("Bạn đã đăng xuất!");
-          location.reload(); // Tải lại trang để hiện lại nút LOGIN
-        });
-      }
-    });
-  </script>
 
   <body>
     <header id="header" class="navbar">
       <div class="logo">SĨ TRIẾT</div>
       <nav class="nav-links">
         <a href="index.html" class="active-nav">Trang Chủ</a>
-        <a href="services.html" target="_blank">Dịch Vụ</a>
-        <a href="portfolio.html">Sản Phẩm</a>
+        <a href="services.html">Dịch Vụ</a>
+        <a href="sanpham.html">Sản Phẩm</a>
         <a href="about.html">Giới Thiệu</a>
       </nav>
       <a href="login.html" id="loginButton" class="btn-secondary">Login</a>
@@ -126,7 +100,11 @@
         </div>
       </section>
 
-      <section id="services-preview" class="section-padding">
+      <section
+        style="background-color: rgb(64, 75, 101)"
+        id="services-preview"
+        class="section-padding"
+      >
         <h2 class="section-title">Dịch Vụ Nổi Bật</h2>
         <div class="services-grid">
           <div class="service-card">
@@ -223,6 +201,120 @@
         </div>
       </section>
 
+      <!-- ============================================================
+     💬 PHẢN HỒI KHÁCH HÀNG
+============================================================ -->
+      <section class="section-padding feedback-section dark-bg">
+        <h2 class="section-title">PHẢN HỒI KHÁCH HÀNG</h2>
+        <p class="subtitle">
+          Những chia sẻ thật lòng từ các đối tác và doanh nghiệp đã sử dụng dịch
+          vụ
+        </p>
+
+        <div class="feedback-grid">
+          <div class="feedback-card">
+            <img src="./public/assets/img/Bae-Suzy.jpg" alt="Khách hàng 1" />
+            <h3>Nguyễn Bảo Trâm</h3>
+            <p class="company">Công ty TNHH 471 Media</p>
+            <p class="quote">
+              “Dịch vụ hosting nhanh, ổn định, đội ngũ hỗ trợ kỹ thuật tận tâm
+              và chuyên nghiệp.”
+            </p>
+          </div>
+
+          <div class="feedback-card">
+            <img src="./public/assets/img/uytin.jpg" alt="Khách hàng 2" />
+            <h3>Trọng Giang</h3>
+            <p class="company">Công ty Cổ phần Danzas Việt Nam</p>
+            <p class="quote">
+              “Website triển khai nhanh, giao diện đẹp và chuẩn SEO. Rất hài
+              lòng!”
+            </p>
+          </div>
+
+          <div class="feedback-card">
+            <img src="./public/assets/img/chidep.jpg" alt="Khách hàng 3" />
+            <h3>Thùy Linh</h3>
+            <p class="company">Doanh nghiệp Huy Hoàng</p>
+            <p class="quote">
+              “NST Web đồng hành hỗ trợ xuyên suốt từ lúc khởi tạo đến khi vận
+              hành website.”
+            </p>
+          </div>
+
+          <div class="feedback-card">
+            <img src="./public/assets/img/bacsi.jpg" alt="Khách hàng 4" />
+            <h3>Vũ Hồng Hạnh</h3>
+            <p class="company">Vận tải Hà Tiên</p>
+            <p class="quote">
+              “Giá cả hợp lý, giao diện hiện đại, dễ sử dụng. Rất đáng để hợp
+              tác lâu dài.”
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- ============================================================
+     🌐 DỊCH VỤ CHĂM SÓC WEBSITE
+============================================================ -->
+      <section class="section-padding faq-section">
+        <h2 class="section-title">DỊCH VỤ CHĂM SÓC WEBSITE TẠI NST WEB</h2>
+        <p class="subtitle">
+          Giải pháp tối ưu giúp doanh nghiệp quản lý và phát triển website hiệu
+          quả
+        </p>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">
+              💡 Lợi ích của việc thiết kế website là gì?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Thiết kế website giúp doanh nghiệp quảng bá thương hiệu, tăng
+                khả năng tiếp cận khách hàng và xây dựng uy tín trực tuyến hiệu
+                quả.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              💰 Giá Thiết Kế Website Tại NST Web Khoảng Bao Nhiêu?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Mức giá khởi điểm từ 3.500.000đ, tặng kèm tên miền và hosting
+                năm đầu. Ngoài ra, bạn có thể chọn gói nâng cao phù hợp với nhu
+                cầu của mình.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              🚀 Vì sao cần phải thiết kế website chuẩn SEO?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Website chuẩn SEO giúp tăng thứ hạng tìm kiếm Google, thu hút
+                nhiều khách hàng tiềm năng hơn và cải thiện hiệu suất marketing.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              🔧 Dịch vụ chăm sóc website bao gồm những gì?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Chúng tôi hỗ trợ cập nhật nội dung, sao lưu dữ liệu, tối ưu tốc
+                độ, bảo mật, khắc phục lỗi và nâng cấp giao diện định kỳ.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="contact-section" class="section-padding">
         <h2 class="section-title">Bạn Đã Sẵn Sàng Bắt Đầu?</h2>
         <p class="subtitle">
@@ -274,5 +366,6 @@
 
     <!-- LIÊN KẾT ĐẾN SCRIPT XỬ LÝ TELEGRAM -->
     <script src="./public/assets/js/telegram.js"></script>
+    <script src="./public/assets/js/script.js"></script>
   </body>
 </html>

@@ -3,14 +3,18 @@
    ============================================================ */
 
 /* ==== Thiết lập Font chữ, Màu sắc cơ bản ==== */
-:root {
-  --color-primary-dark: #0a192f; /* Nền chính: Xanh Navy/Đen */
-  --color-secondary-accent: #64ffda; /* Điểm nhấn: Xanh Cyan */
-  --color-text-light: #ccd6f6; /* Chữ sáng: Trắng xám */
-  --color-text-dark: #8892b0; /* Chữ phụ: Xám nhạt */
-  --color-card-bg: #112240; /* Nền Card/Module */
+/* ============================================================
+   🌌 STYLE MAIN FILE — MyWeb + Service Page Fix
+   ============================================================ */
 
-  /* Typography */
+/* ==== Thiết lập Font chữ, Màu sắc cơ bản ==== */
+:root {
+  --color-primary-dark: #0a192f;
+  --color-secondary-accent: #64ffda;
+  --color-text-light: #ccd6f6;
+  --color-text-dark: #8892b0;
+  --color-card-bg: #112240;
+
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Roboto Mono", monospace;
 }
@@ -28,12 +32,14 @@ body {
   line-height: 1.6;
 }
 
-/* -------------------- Navbar -------------------- */
+/* ============================================================
+   🧭 HEADER (Navbar)
+   ============================================================ */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
+  padding: 16px 60px;
   background-color: rgba(10, 25, 47, 0.98);
   position: fixed;
   width: 100%;
@@ -43,81 +49,291 @@ body {
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--color-secondary-accent);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .nav-links a {
   color: var(--color-text-dark);
   text-decoration: none;
-  margin-left: 30px;
   font-size: 14px;
-  transition: color 0.3s;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active-nav {
   color: var(--color-secondary-accent);
-}
-.user-menu {
-  position: relative;
-  display: inline-block;
+  transform: translateY(-2px);
 }
 
-.user-name {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: rgba(100, 255, 218, 0.1);
-  border-radius: 8px;
-  color: #64ffda;
+.btn-secondary {
+  background-color: var(--color-card-bg);
+  color: var(--color-secondary-accent);
+  border: 1px solid var(--color-secondary-accent);
+  padding: 10px 20px;
+  border-radius: 4px;
   font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.user-name:hover {
-  background: rgba(100, 255, 218, 0.2);
-}
-
-/* Dropdown container */
-.user-dropdown {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 8px);
-  background: #0a192f;
-  border: 1px solid rgba(100, 255, 218, 0.3);
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.15);
-  min-width: 140px;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 9999;
-}
-
-/* Khi hover vào .user-menu hoặc chính dropdown */
-.user-menu:hover .user-dropdown,
-.user-dropdown:hover {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Link trong dropdown */
-.user-dropdown a {
-  display: block;
-  padding: 10px 15px;
-  color: #64ffda;
   text-decoration: none;
-  transition: background 0.3s;
-  border-radius: 8px;
+  transition: all 0.3s;
 }
 
-.user-dropdown a:hover {
-  background: rgba(100, 255, 218, 0.1);
+.btn-secondary:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* ============================================================
+   🎯 HERO SECTION — Service Page
+   ============================================================ */
+.service-hero-modified {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 25, 47, 1) 0%,
+    rgba(17, 34, 64, 1) 100%
+  );
+  color: var(--color-text-light);
+  text-align: left;
+  padding-top: 160px;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  line-height: 1.3;
+  margin-bottom: 25px;
+  color: var(--color-text-light);
+}
+
+.intro-line {
+  color: var(--color-secondary-accent);
+  font-size: 15px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-content .subtitle {
+  color: var(--color-text-dark);
+  font-size: 17px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.btn-primary,
+.btn-outline {
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--color-secondary-accent);
+  color: var(--color-primary-dark);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  border: 1px solid var(--color-secondary-accent);
+  color: var(--color-secondary-accent);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--color-secondary-accent);
+  color: var(--color-secondary-accent);
+}
+
+.btn-outline:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* ============================================================
+   🧩 SERVICE DETAILS
+   ============================================================ */
+.section-padding {
+  padding: 100px 80px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--color-text-dark);
+  margin-bottom: 50px;
+}
+
+.service-detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+.detail-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.detail-content h3 {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: var(--color-secondary-accent);
+}
+
+.detail-content p {
+  color: var(--color-text-dark);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.feature-list {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.feature-list li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-list i {
+  color: var(--color-secondary-accent);
+}
+
+.detail-img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 40px rgba(100, 255, 218, 0.2);
+}
+
+/* ============================================================
+   ✉️ CONTACT FORM SECTION
+   ============================================================ */
+.contact-form-layout {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form-layout input,
+.contact-form-layout textarea {
+  padding: 15px;
+  border: 1px solid var(--color-text-dark);
+  border-radius: 6px;
+  background-color: var(--color-card-bg);
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  font-size: 15px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form-layout input:focus,
+.contact-form-layout textarea:focus {
+  border-color: var(--color-secondary-accent);
+  box-shadow: 0 0 4px var(--color-secondary-accent);
+  outline: none;
+}
+
+.contact-form-layout button {
+  padding: 15px;
+  font-size: 16px;
+  background-color: var(--color-secondary-accent);
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-form-layout button:hover {
+  background-color: transparent;
+  color: var(--color-secondary-accent);
+  border: 1px solid var(--color-secondary-accent);
+}
+
+/* ============================================================
+   ⚡ FOOTER
+   ============================================================ */
+footer {
+  padding: 30px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-dark);
+  border-top: 1px solid rgba(136, 146, 176, 0.1);
+  margin-top: 80px;
+}
+
+/* ============================================================
+   📱 RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 12px 25px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .service-detail-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .section-padding {
+    padding: 60px 25px;
+  }
 }
 
 /* -------------------- Buttons -------------------- */
@@ -187,36 +403,32 @@ body {
 /* ============================================================
    🐉 HERO SECTION + SLIDER 3D RỒNG
    ============================================================ */
+
 .hero-section {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    #f5f7fa
-  ); /* nền trắng sáng hơn */
+  background: linear-gradient(180deg, #0a192f 0%, #112240 100%);
   overflow: hidden;
   text-align: center;
 }
 
-/* Hiệu ứng sáng phủ nhẹ để nổi chữ */
+/* Ánh sáng trung tâm */
 .hero-section::before {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(240, 240, 240, 0.7) 50%,
-    rgba(230, 230, 230, 1) 100%
+    rgba(100, 255, 218, 0.15) 0%,
+    rgba(10, 25, 47, 1) 70%
   );
   z-index: 1;
 }
 
-/* Container 3D */
+/* Khối chứa slider 3D */
 .slider3d-container {
   position: relative;
   width: 100%;
@@ -225,8 +437,8 @@ body {
   justify-content: center;
   align-items: center;
   perspective: 2000px;
-  overflow: hidden;
   z-index: 2;
+  overflow: hidden;
 }
 
 /* Slider các ảnh rồng */
@@ -262,34 +474,98 @@ body {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
 
-Robot giữa to và nổi bật hơn .center-robot {
+/* 🐉 Robot giữa (nổi bật hơn) */
+.center-robot {
   position: absolute;
-  width: 500px; /* to hơn */
+  width: 480px;
   height: auto;
   z-index: 10;
   pointer-events: none;
-  filter: brightness(1.2) drop-shadow(0 10px 40px rgba(0, 0, 0, 0.4));
-  animation: float 6s ease-in-out infinite;
+  filter: brightness(1.2) drop-shadow(0 10px 40px rgba(100, 255, 218, 0.5))
+    drop-shadow(0 0 50px rgba(100, 255, 218, 0.3));
+  animation: float 6s ease-in-out infinite,
+    glow 2s ease-in-out infinite alternate;
 }
 
 /* Robot bay nhẹ lên xuống */
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
   50% {
     transform: translateY(-20px);
   }
 }
 
-/* Animation xoay */
+/* Hiệu ứng phát sáng robot */
+@keyframes glow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 20px rgba(100, 255, 218, 0.2))
+      drop-shadow(0 0 40px rgba(100, 255, 218, 0.1));
+  }
+  100% {
+    filter: brightness(1.4) drop-shadow(0 0 40px rgba(100, 255, 218, 0.4))
+      drop-shadow(0 0 60px rgba(100, 255, 218, 0.3));
+  }
+}
+
+/* Hiệu ứng xoay tròn của slider */
 @keyframes rotateSlider {
   from {
     transform: rotateY(0deg);
   }
   to {
     transform: rotateY(360deg);
+  }
+}
+
+/* Text hero */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  max-width: 800px;
+  text-align: center;
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+}
+
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  color: var(--color-text-light);
+}
+
+.intro-line {
+  color: var(--color-secondary-accent);
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.hero-content .subtitle {
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: var(--color-text-dark);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
   }
 }
 
@@ -400,6 +676,111 @@ Robot giữa to và nổi bật hơn .center-robot {
   border-radius: 4px;
   margin: 15px 0;
   display: block;
+}
+/* ============================================================
+   🌐 FAQ / DỊCH VỤ CHĂM SÓC WEBSITE
+============================================================ */
+.faq-section {
+  background-color: #0a192f;
+  color: var(--color-text-light);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: var(--color-card-bg);
+  color: var(--color-secondary-accent);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(100, 255, 218, 0.15);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background-color: rgba(17, 34, 64, 0.9);
+  color: var(--color-text-dark);
+  padding: 0 20px;
+  transition: all 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 15px 20px;
+}
+
+/* ============================================================
+   💬 FEEDBACK KHÁCH HÀNG
+============================================================ */
+.feedback-section {
+  text-align: center;
+  background-color: #06121f;
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.feedback-card {
+  background: var(--color-card-bg);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(100, 255, 218, 0.2);
+}
+
+.feedback-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.feedback-card h3 {
+  color: var(--color-secondary-accent);
+  margin-bottom: 5px;
+}
+
+.feedback-card .company {
+  font-size: 14px;
+  color: var(--color-text-dark);
+  margin-bottom: 10px;
+}
+
+.feedback-card .quote {
+  font-size: 15px;
+  color: var(--color-text-light);
+  font-style: italic;
+  line-height: 1.5;
 }
 
 /* -------------------- Portfolio -------------------- */

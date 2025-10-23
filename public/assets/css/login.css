@@ -23,6 +23,58 @@ body {
   align-items: center;
   justify-content: center;
 }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: rgba(10, 25, 47, 0.98);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-secondary-accent);
+}
+
+.nav-links a {
+  color: var(--color-text-dark);
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active-nav {
+  color: var(--color-secondary-accent);
+}
+.user-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.user-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  color: #64ffda;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.user-name:hover {
+  background: rgba(100, 255, 218, 0.2);
+}
 
 .login-container {
   display: flex;
