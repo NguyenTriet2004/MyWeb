@@ -1,13 +1,15 @@
 /* ===============================
-   🌌 FILE: about.css
-   Dành riêng cho trang Giới thiệu (gioithieu.html)
-   =============================== */
+    🌌 FILE: about.css
+    Dành riêng cho trang Giới thiệu (gioithieu.html)
+    =============================== */
 
 :root {
   --primary-bg: #0a192f;
+  --secondary-bg: #112240; /* Nền phụ cho các box */
   --accent-color: #64ffda;
   --text-color: #d1d5db;
   --white: #ffffff;
+  --light-slate: #8892b0;
 }
 
 /* ==== RESET CƠ BẢN ==== */
@@ -26,8 +28,8 @@ body {
 }
 
 /* ===============================
-   ✨ HEADER / NAVBAR
-   =============================== */
+    ✨ HEADER / NAVBAR
+    =============================== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -60,7 +62,7 @@ body {
 
 /* Menu liên kết */
 .nav-links a {
-  color: var(--text-color);
+  color: var(--light-slate); /* Dùng màu nhẹ hơn cho links */
   text-decoration: none;
   margin-left: 20px;
   font-size: 15px;
@@ -80,70 +82,172 @@ body {
 }
 
 /* ===============================
-   🧩 ABOUT SECTION
-   =============================== */
+    🧩 ABOUT SECTION
+    =============================== */
 .about-section {
   padding: 120px 20px 100px;
-  text-align: center;
   background: var(--primary-bg);
   color: var(--text-color);
 }
 
-/* Container nội dung chính */
+/* Container nội dung chính (Đã bỏ blur và animation ở đây, thay bằng cho .fade-up) */
 .about-container {
-  max-width: 950px;
+  max-width: 1100px; /* Tăng chiều rộng để phù hợp bố cục 2 cột */
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 50px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  animation: fadeIn 1.2s ease-in-out;
+  /* Loại bỏ styling cũ, chuyển sang Flex/Grid */
+  padding: 0;
+  box-shadow: none;
 }
 
-/* Tiêu đề chính */
-.about-container h1 {
-  font-size: 2.6rem;
-  color: var(--white);
+/* Bố cục 2 cột (Chủ yếu cho màn hình lớn) */
+.about-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Cột 1: Ảnh (350px), Cột 2: Nội dung */
+  gap: 50px;
+  align-items: start;
+}
+
+/* Cột Trái: Profile Card (Ảnh & Social) */
+.profile-card {
+  text-align: center;
+  position: sticky;
+  top: 100px; /* Giữ cố định khi cuộn */
+}
+
+.profile-img {
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 1 / 1.1; /* Tỉ lệ hơi cao hơn hình vuông */
+  border-radius: 10px;
+  object-fit: cover;
   margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.2); /* Shadow màu accent */
+  border: 2px solid var(--accent-color);
+  transition: transform 0.5s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.02);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--secondary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.3rem;
+  border: 1px solid var(--accent-color);
+}
+
+.social-btn:hover {
+  background: var(--accent-color);
+  color: var(--primary-bg);
+  transform: translateY(-5px);
+}
+
+/* Cột Phải: Nội dung chi tiết */
+.about-content h1 {
+  font-size: 3rem; /* Tăng kích thước H1 */
+  color: var(--white);
+  margin-bottom: 10px;
   letter-spacing: 1px;
 }
 
+.sub-heading {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: var(--accent-color); /* Highlight bằng màu accent */
+}
+
 /* Tiêu đề phụ */
-.about-container h2 {
-  color: var(--accent-color);
+.about-content h2 {
+  color: var(--white); /* Đổi H2 sang màu trắng nổi bật */
   font-size: 1.8rem;
   margin-top: 40px;
   margin-bottom: 15px;
-  text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+  position: relative;
+}
+
+.about-content h2::before {
+  content: "#";
+  color: var(--accent-color);
+  margin-right: 10px;
+  font-size: 1.5em;
+  opacity: 0.8;
 }
 
 /* Đoạn văn */
-.about-container p {
-  color: var(--text-color);
+.about-content p {
+  color: var(--light-slate); /* Màu chữ dễ đọc hơn */
   line-height: 1.8;
   font-size: 1.05rem;
-  text-align: justify;
-  margin-bottom: 12px;
+  text-align: left; /* Căn trái để chuyên nghiệp hơn */
+  margin-bottom: 15px;
 }
 
-/* Danh sách */
-.about-container ul {
+/* KỸ NĂNG CHUYÊN MÔN (Tech Stack) */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.tech-tag {
+  background: var(--secondary-bg);
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  transition: background 0.3s ease;
+}
+
+.tech-tag i {
+  color: var(--light-slate);
+}
+
+.tech-tag:hover {
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--white);
+}
+
+/* Danh sách (Dùng cho "Tại sao chọn tôi") */
+.about-content ul {
   list-style: none;
   padding: 0;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
-.about-container li {
-  color: var(--text-color);
-  margin: 8px 0;
+.about-content li {
+  color: var(--light-slate);
+  margin: 10px 0;
   position: relative;
   padding-left: 25px;
   transition: transform 0.3s ease;
+  text-align: left;
 }
 
-.about-container li::before {
+.about-content li::before {
   content: "▹";
   color: var(--accent-color);
   position: absolute;
@@ -152,30 +256,56 @@ body {
   line-height: 1;
 }
 
-.about-container li:hover {
+.about-content li:hover {
   transform: translateX(5px);
-}
-
-/* Khung thông tin liên hệ */
-.contact-info {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.contact-info a {
   color: var(--accent-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-.contact-info a:hover {
+/* Khung thông tin liên hệ / CTA Box */
+.contact-box {
+  margin-top: 40px;
+  padding: 30px;
+  background: var(--secondary-bg);
+  border-radius: 10px;
+  border-left: 5px solid var(--accent-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.contact-box h3 {
   color: var(--white);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.contact-box p {
+  color: var(--light-slate);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--accent-color);
+  color: var(--primary-bg); /* Chữ tối trên nền sáng */
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(100, 255, 218, 0.4);
+}
+
+.btn-primary:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(100, 255, 218, 0.6);
 }
 
 /* ===============================
-   🎞️ HIỆU ỨNG XUẤT HIỆN
-   =============================== */
+    🎞️ HIỆU ỨNG XUẤT HIỆN
+    (Giữ nguyên)
+    =============================== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -187,7 +317,6 @@ body {
   }
 }
 
-/* Hiệu ứng scroll */
 .fade-up {
   opacity: 0;
   transform: translateY(40px);
@@ -200,9 +329,31 @@ body {
 }
 
 /* ===============================
-   📱 RESPONSIVE
-   =============================== */
-@media (max-width: 768px) {
+    📱 RESPONSIVE
+    =============================== */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* Chuyển sang 1 cột */
+    gap: 30px;
+  }
+
+  .profile-card {
+    position: static; /* Bỏ sticky */
+    order: -1; /* Đưa ảnh lên đầu */
+    margin-bottom: 20px;
+  }
+
+  .profile-img {
+    max-width: 280px;
+    margin: 0 auto 20px auto;
+  }
+
+  .about-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
   .navbar {
     flex-direction: column;
     padding: 10px 20px;
@@ -212,15 +363,25 @@ body {
     margin-top: 10px;
   }
 
-  .about-container {
-    padding: 30px;
+  .nav-links a {
+    margin: 0 8px;
   }
 
-  .about-container h1 {
+  .about-section {
+    padding: 90px 15px 50px;
+  }
+
+  .about-content h1 {
     font-size: 2rem;
   }
 
-  .about-container h2 {
+  .about-content h2 {
     font-size: 1.4rem;
+    margin-top: 30px;
+  }
+
+  .about-content p,
+  .tech-tag {
+    font-size: 1rem;
   }
 }
